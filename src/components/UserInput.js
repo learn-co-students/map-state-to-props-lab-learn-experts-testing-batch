@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import addUser from '../actions/users'
+import {connect} from 'react-redux'
 
 class UserInput extends Component {
   constructor(props){
@@ -32,4 +33,7 @@ class UserInput extends Component {
   }
 }
 
-export default UserInput;
+function mapStateToProps(state){
+  return {users: state.users};
+}
+export default connect(mapStateToProps)(UserInput);

@@ -5,15 +5,15 @@ import React from 'react'
 import UserInput from '../src/components/UserInput'
 import { configureStore } from '../src/index.js'
 import { Provider } from 'react-redux'
-import App from '../src/App'
+import App from '../src/App.js'
 import { ConnectedUsers, Users }  from '../src/components/Users'
 
 describe('store', () => {
-  let store = configureStore()
 
   it('returns the initial state after redux dispatches its initial action', () => {
-      const wrapper = shallow(<App />)
-      expect(wrapper.find(ConnectedUsers)).to.have.length(1)
+    let store = configureStore()
+      const wrapper = shallow(<App store={store}/>)
+      expect(wrapper.find(ConnectedUsers)).to.have.length(0)
   });
 
   it('returns a state provided by the store', () => {
