@@ -13,13 +13,11 @@ export function configureStore(){
   return createStore(manageBand, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 }
 
-let store = configureStore()
+const store = configureStore()
 
 ReactDOM.render(
   <Provider store={store}>
     <App store={store}/>
-  </Provider>
-    ,
+  </Provider>,
     document.getElementById('root')
-
 );
